@@ -27,7 +27,7 @@ describe "HtmlTemplate" do
     context "when rendering html format" do
       describe "html format" do
         it "dumps the results to an html file" do
-          pending("Stub out filesystem operations")
+          skip("Stub out filesystem operations")
         end
       end
     end

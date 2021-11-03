@@ -16,7 +16,7 @@ describe "PdfTemplate" do
     context "when outputting" do
       describe "pdf format" do
         it "dumps the results to a PDF file" do
-          pending("Check PDFKit API docs for test case details")
+          skip("Check PDFKit API docs for test case details")
         end
       end
     end
