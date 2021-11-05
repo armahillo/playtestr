@@ -2,10 +2,8 @@
 
 require 'rubygems'
 require 'bundler/setup'
-require './lib/deck.rb'
-require './lib/template.rb'
-require './lib/pdf_template.rb'
-require './lib/html_template.rb'
+
+require_relative './lib/playtest'
 
 # Use the default OptionParser for CLI
 require 'optparse'
@@ -61,16 +59,16 @@ end
 
 ENV["verbose"] = "true" if options[:verbose]
 
-deck = Deck.new(options[:cards])
+deck = Playtest::Deck.new(options[:cards])
 case options[:format]
   when "pdf"
     destination = options[:output].nil? ? "export/rendered_#{Time.now.to_i}.pdf" : options[:output]
-    template = PdfTemplate.new(destination)
+    template = Playtest::PdfTemplate.new(destination)
     
   when "html"
     destination = options[:output].nil? ? "export/rendered_#{Time.now.to_i}.html" : options[:output]
     css = options[:css].nil? ? "import/default.css" : options[:css]
-    template = HtmlTemplate.new(destination, css)
+    template = Playtest::HtmlTemplate.new(destination, css)
 end
 
 deck.map(&template.method(:<<))

@@ -1,21 +1,19 @@
-require 'html_template'
-
-describe "HtmlTemplate" do
+describe Playtest::HtmlTemplate do
 
   let!(:destination) { "spec/data/default.html" }
   let!(:default_css) { "spec/data/default.css" }
 
   describe "Constructor" do
     it "instantiates with a specified output file" do
-      expect(HtmlTemplate.new(destination)).to be_instance_of(HtmlTemplate)
+      expect(described_class.new(destination)).to be_instance_of(described_class)
     end
     it "can override the css source" do
-      expect(HtmlTemplate.new(destination, default_css)).to be_instance_of(HtmlTemplate)
+      expect(described_class.new(destination, default_css)).to be_instance_of(described_class)
     end
   end
 
   describe "Attributes" do
-    let!(:template) { HtmlTemplate.new(destination, default_css) }
+    let!(:template) { described_class.new(destination, default_css) }
     
     it "allows public access to html and css source filenames" do
       expect(template.destination).to eq(destination)

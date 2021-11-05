@@ -1,18 +1,16 @@
-require 'deck'
-
-describe "Deck" do
+describe Playtest::Deck do
 
   let!(:card_source) { "spec/data/cards.yml" }
   let!(:alternate_card_source) { "spec/data/alternate_cards.yml" }
-  let!(:deck) { Deck.new(card_source) }
+  let!(:deck) { described_class.new(card_source) }
   
   describe "Constructor" do
     it "instantiates with no arguments" do
-      expect(Deck.new).to be_instance_of(Deck)
+      expect(described_class.new).to be_instance_of(described_class)
     end
     it "can override the source file with an argument" do
-      d = Deck.new(card_source)
-      expect(d).to be_instance_of(Deck)
+      d = described_class.new(card_source)
+      expect(d).to be_instance_of(described_class)
       expect(d.cards).to_not be_empty
     end
   end

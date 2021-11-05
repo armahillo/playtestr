@@ -1,17 +1,15 @@
-require 'template'
-
-describe "Template" do
+describe Playtest::Template do
 
   let!(:destination) { "spec/data/export" }
-  let!(:template) { Template.new(destination) }
+  let!(:template) { described_class.new(destination) }
 
   describe "Constructor" do
     it "cannot instantiate with no arguments" do
-      expect { Template.new }.to raise_error(ArgumentError)
+      expect { described_class.new }.to raise_error(ArgumentError)
     end
 
     it "instantiates with a destination path" do
-      expect(Template.new(destination)).to be_instance_of(Template)
+      expect(described_class.new(destination)).to be_instance_of(described_class)
     end
   end
 

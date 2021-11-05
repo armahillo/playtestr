@@ -1,14 +1,11 @@
-puts $LOAD_PATH
-require 'pdf_template'
-
-describe "PdfTemplate" do
+describe Playtest::PdfTemplate do
 
   let!(:destination) { "spec/data/export.pdf" }
-  let!(:template) { PdfTemplate.new(destination) }
+  let!(:template) { described_class.new(destination) }
   
   describe "Constructor" do
     it "instantiates with an export filename" do
-      expect(PdfTemplate.new(destination)).to be_instance_of(PdfTemplate)
+      expect(described_class.new(destination)).to be_instance_of(described_class)
     end
   end
 
