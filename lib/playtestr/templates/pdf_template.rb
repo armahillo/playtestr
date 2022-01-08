@@ -6,7 +6,7 @@ require 'prawn'
 # To disable this warning, add the following line to your code:
 Prawn::Fonts::AFM.hide_m17n_warning = true
 
-module Playtest
+module Playtestr
   class PdfTemplate < Template
 
     def initialize(destination)

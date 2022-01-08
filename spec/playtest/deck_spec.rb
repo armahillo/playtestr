@@ -1,4 +1,4 @@
-describe Playtest::Deck do
+describe Playtestr::Deck do
 
   let!(:card_source) { "spec/data/cards.yml" }
   let!(:alternate_card_source) { "spec/data/alternate_cards.yml" }

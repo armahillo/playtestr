@@ -1,4 +1,4 @@
-describe Playtest::PdfTemplate do
+describe Playtestr::PdfTemplate do
 
   let!(:destination) { "spec/data/export.pdf" }
   let!(:template) { described_class.new(destination) }

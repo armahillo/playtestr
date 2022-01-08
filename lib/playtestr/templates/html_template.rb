@@ -1,6 +1,6 @@
 require_relative '../template'
 
-module Playtest
+module Playtestr
   class HtmlTemplate < Template
 
     attr_reader :css

@@ -31,22 +31,22 @@ We've recently added some command line options to give you greater control over 
 
 ```bash
 # Super basic: 
-./playtest.rb
+./playtestr.rb
 
 # Super basic, verbose: 
-./playtest.rb -v
+./playtestr.rb -v
 
 # Custom YAML input: 
-./playtest.rb -c "import/cards.yml"
+./playtestr.rb -c "import/cards.yml"
 
 # HTML output: 
-./playtest.rb -o "export/foo.html"
+./playtestr.rb -o "export/foo.html"
 
 # Super tweaked: 
-./playtest.rb -v -c "/path/to/my/cards.yml" -o "/path/to/my/export/new_cards.pdf"
+./playtestr.rb -v -c "/path/to/my/cards.yml" -o "/path/to/my/export/new_cards.pdf"
 ```
 
-## Contributing to Playtest
+## Contributing to Playtestr
 
 To add new code please:
 

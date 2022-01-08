@@ -1,4 +1,4 @@
-module Playtest
+module Playtestr
   class Template
 
     attr_reader :document, :destination

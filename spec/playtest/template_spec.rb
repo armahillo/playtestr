@@ -1,4 +1,4 @@
-describe Playtest::Template do
+describe Playtestr::Template do
 
   let!(:destination) { "spec/data/export" }
   let!(:template) { described_class.new(destination) }

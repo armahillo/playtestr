@@ -1,6 +1,6 @@
 require 'yaml'
 
-module Playtest
+module Playtestr
   class Deck
     include Enumerable
     attr_reader :cards

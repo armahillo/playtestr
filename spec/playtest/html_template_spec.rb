@@ -1,4 +1,4 @@
-describe Playtest::HtmlTemplate do
+describe Playtestr::HtmlTemplate do
 
   let!(:destination) { "spec/data/default.html" }
   let!(:default_css) { "spec/data/default.css" }
