@@ -24,7 +24,7 @@ We've recently added some command line options to give you greater control over 
 -v | --verbose : display console output while running
 -c CARDYAML | --cards CARDYAML : defaults to "import/cards.yml", the YAML file it will use for reference
 -o OUTPUT | --output OUTPUT : the file to export to. Defaults to "export/rendered_XXXXXX.ext" where XXXX is the microtime and ext is the output extension (defaults to PDF)
--s CSSFILE | --stylesheet CSSFILE : The css file to use when doing HTML output, optional. Defaults to "import/default.css"
+-s CSSFILE | --stylesheet CSSFILE : The css file to use when doing HTML output, optional. Defaults to "assets/stylesheets/default.css"
 ```
 
 ### CLI Examples

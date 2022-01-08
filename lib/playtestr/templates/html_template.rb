@@ -5,7 +5,7 @@ module Playtestr
 
     attr_reader :css
     
-    def initialize (destination, css = "import/default.css")  
+    def initialize (destination, css = "assets/stylesheets/default.css")  
       @css = css
       super(destination)
     end
