@@ -29,6 +29,16 @@ We've recently added some command line options to give you greater control over 
 
 ### CLI Examples
 
+#### New Style
+```bash
+# Import from a CSV file -- you can also just create your own YML manually in the /import folder
+./rake import:csv[/path/to/your/csv_file.csv]
+
+# Export all of the YMLs in /import into comparable PDFs in the /export folder
+./rake export:all[pdf]
+```
+
+#### Old Style
 ```bash
 # Super basic: 
 ./playtestr.rb
