@@ -67,7 +67,7 @@ case options[:format]
     
   when "html"
     destination = options[:output].nil? ? "export/rendered_#{Time.now.to_i}.html" : options[:output]
-    css = options[:css].nil? ? "import/default.css" : options[:css]
+    css = options[:css].nil? ? "assets/stylesheets/default.css" : options[:css]
     template = Playtestr::HtmlTemplate.new(destination, css)
 end
 

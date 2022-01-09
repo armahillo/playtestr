@@ -14,7 +14,7 @@ module Playtestr
     def <<(details)
       name = details["name"] ||= "No Name #{unique_cards}"
       details["quantity"] ||= 1
-      if (@cards.has_key?(name.to_sym)) 
+      if (@cards.key?(name.to_sym)) 
         @cards[name.to_sym]["quantity"] += (details["quantity"] || 1)
       else
         @cards[name.to_sym] = details
