@@ -9,19 +9,27 @@ require_relative './lib/playtestr'
 require 'optparse'
 options = {cards: "import/cards.yml", format: "pdf", css: nil, output: nil}
 option_parser = OptionParser.new do |opts|
-
   # Switches
   opts.on("-v", "--verbose") do # Provide STDOUT output when cards are added
     options[:verbose] = true
   end
   
   # Flags
-  opts.on("-c CARDS", "--cards CARDS") do |cards|
+  opts.on("-c", "--cards CARDS",
+          "YML Sourcefile for your card definitions") do |cards|
     unless File.exist?(cards)
       raise ArgumentError, "Could not find card source file: #{cards}"
     end
     options[:cards] = cards
   end
+
+  opts.on('-f', '--format FORMAT') do |format|
+    case format
+    when 'jpg'
+      options[:format] = 'jpg'
+    end
+  end
+
   opts.on("-o FILE", "--output FILE") do |file|
     unless File.writable?(File.dirname(file))
       raise ArgumentError, "Cannot write to #{File.dirname(file)}"
@@ -39,6 +47,7 @@ option_parser = OptionParser.new do |opts|
     end
     options[:output] = file
   end
+
   opts.on("-s CSS", "--stylesheet CSS") do |css|
     unless File.exist?(css)
       raise ArgumentError, "Could not find stylesheet: #{css}"
@@ -69,6 +78,15 @@ case options[:format]
     destination = options[:output].nil? ? "export/rendered_#{Time.now.to_i}.html" : options[:output]
     css = options[:css].nil? ? "assets/stylesheets/default.css" : options[:css]
     template = Playtestr::HtmlTemplate.new(destination, css)
+
+  when 'jpg'
+    destination_dir = options[:output].nil? ? "export/#{Time.now.to_i}" : options[:output]
+    assets_dir = options[:assets].nil? ? "./import" : options[:assets]
+    Dir.mkdir(destination_dir)
+    template = Playtestr::JpgTemplate.new(destination_dir, assets_dir)
+
+  else
+    puts "USAGE: playtestr.rb format=[pdf|html|jpg]"
 end
 
 deck.map(&template.method(:<<))
