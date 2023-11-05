@@ -1,2 +1,4 @@
 export/*
 import/*.yml
+.DS_Store
+tmp/*
